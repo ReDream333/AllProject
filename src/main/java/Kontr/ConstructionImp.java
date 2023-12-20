@@ -9,11 +9,22 @@ class ConstructionImpl implements Construction {
         stages.add(new Project("Project"));}
 
     public void startConstruction(){
-        
-    };
-    public void finishConstruction(){
+        System.out.println("Construction started.");
+        performStage((Stage) stages.peek());
 
-    };
+    }
+
+    private void performStage(Stage stage) {
+        if (stage == null) {
+            finishConstruction();
+            return;
+        }
+    }
+
+    public void finishConstruction(){
+        System.out.println("Construction finished.");
+    }
+
 
 }
 
